@@ -1,0 +1,233 @@
+.body{ /**/
+    margin:  0; 
+        font-family: 'Montserrat', sans-serif; /*семейство шрифта*/
+    font-size: 15px; /*размер шрифта*/
+    line-height: 1.6; /*межстрочный отступ*/
+    color: #333;/*цвет шрифта*/
+}
+
+*,
+*:after,
+*:before{
+    box-sizing: border-box; /*убирает значения по умолчанию*/
+}
+
+h1, h2, h3, h4, h5, h6{
+    margin: 0; /*сбросили отступы всех заголовков*/
+}
+
+.container{
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto; /*выровняли по центру*/
+     
+}
+
+/*Intro*/
+
+.intro{
+    display: flex; /*сделали его флекс боксом, чтобы выровнять наше интро*/
+    flex-direction: column;/* флекс элементы выстраиваются в колонку*/
+    justify-content: center; /*сдеалил этот блок по центру*/
+    width: 100%;
+    height: 100vh; /*высота будет занимать весь экран посетителя*/
+    
+    background: url(../css/image/intro2.jpg) center no-repeat;
+    background-size: cover; /*чтобы занимало всю площать экрана*/
+}
+
+.intro_title{
+    color: #fff;
+    font-size: 150px; /*размер шрифта*/
+    font-weight: 700; /*жирность болт(700)*/
+    
+    text-transform: uppercase; /*всё в верхнем регистре*/
+    text-align: center;
+    line-height: 1; /*межстрочный интервал */
+}
+
+.intro_title:after{
+    content: "";
+    display: block; /*отображает элемент как блочный*/
+    width: 60px;
+    height: 3px;
+    background-color: #fff; /*цвет этой полоски*/
+    margin: 60px auto; /*сверху и снизу отступили по 60, слева и справа авто(по средине)*/
+}
+
+.intro_inner{ /*это блочок, где у нас будет интро приветствие его надо сделать по средине и уменьшить*/
+    width: 100%;
+    max-width: 880px;
+    margin: 0 auto; /*выравниваем по центру*/
+    
+    text-align: center; /*выровняли по центру родителя и всё что внутри соответственно будет по центру */
+}
+
+.intro_suptitle{
+    
+    margin-bottom: 20px; /*отступ от нижнего края элемента*/
+    font-family: 'Kaushan Script', cursive;
+    font-size: 72px; /*размер шрифта*/
+    color: #fff;
+    
+    
+}
+
+/*Header*/
+
+.header{
+    padding-top: 30px; /*отступ всей шапки сверху*/
+    width: 100%;
+    
+    position: absolute; /*отсчёт координат ведется от родительского элемента*/
+    top: 0; /*прижали к верху*/
+    left: 0;
+    right: 0;
+    z-index: 1000; /*чтобы поверх всего был*/
+    
+}
+
+.header_inner{  /*теперь нам надо разместить логотип справа, а навигацию слева, для этого воспользуемся флексбоксами*/
+    display: flex; 
+    justify-content: space-between; /*раскинуло наши два элемента которые находятся в флекс контейнере по разным краям*/
+    align-items: center; /*выровняли флекс элементы внутри контейнера*/
+}
+
+.header_logo{ /*для логотипа Mono в шапке*/
+    font-size: 30px; /*размер шрифта*/
+    font-weight: 700; /*насыщеность шрифта*/
+    color: #fff;
+}
+
+/*Nav*/
+
+.nav{ /*навигация в шапке*/
+    font-size: 14px; /*размер шрифта*/
+    text-transform: uppercase; /*всё большими буквами*/
+    
+}
+
+.nav_link{
+    display: inline-block;  /*позволит задавать ширину и высоту элемента*/
+    vertical-align: top; /*вериткальное позиционирование*/
+    margin: 0 15px; /*отступ справа*/
+    position: relative; /*сюда этот параметр потому, что линию при наведении мы будем выравнивать относительно этого элемента, тут релейтив там абсолют*/
+    
+    color: #fff;
+    text-decoration: none; /*убрали подчеркивание снизу*/
+    
+    transition:  color 0.2s linear; /*чтобы цвет менялся плавно 0.2 секунды*/
+}
+
+.nav_link:after{/*вставляет псевдо элемент то есть полоску после этого элемента  */
+    content: "";
+    display: block; /*отображает элемент как блочный*/
+    width: 100%; /*ширина относительно каэдого слова100%*/
+    height: 3px; /*высота 3 пикселя*/
+    opacity: 0; /*чтобы оно не горела эта линия под всеми ссылками, сецчас это значение 0 после наведения будет 1*/
+    transition: opacity 0.1s linear; /*чтобы плавно загорался*/
+    
+    background-color: #fce38a; /*это и будет эта линия*/
+    position: absolute; /*отсчёт координат ведется от родительского элемента*/
+    top: 100%; /*прижали к верху уже относительно ссылки*/
+    left: 0;
+    z-index: 1;
+    
+    
+}
+
+.nav_link:hover{ /*при наведении менялся цвет*/
+    color: #fce38a;
+}
+
+.nav_link:hover:after{ /*чтобы когда наводки была подчёреивающая линия*/
+    opacity: 1;
+}
+
+/*Button*/
+
+.btn{
+    display: inline-block; /*указали, что это будет блочно строчный элемнт, позволяет задавать размеры, рамки, отступы, ширина зависит от содержания, выравнивается вертикально как и строчныетэлементы */
+    vertical-align: top; /*выравнивает по вертикали относительно родитя*/
+    padding: 8px 30px; /* отступ от текста до бордера 8 - сверху и снизу, 30 - слева и справа*/
+    border: 3px solid #fff;
+   
+    color: #fff; /*цвет текста кнопки*/
+    text-transform: uppercase; /*верхний регистр*/
+    font-size: 14px; /*размер шрифта*/
+    font-weight: 700; /*жирность*/
+    text-decoration: none; /*убрали подчёркивание ссылки*/
+    
+    transition: background 0.1s linear, color 0.1s linear; /*сделали плавное появление белого цвета в кнопки и черного текста*/
+}
+
+.btn:hover{
+    background-color: #fff;
+    color: #333;
+}
+
+/*Slider*/
+
+.slider{
+    display: flex; /*сделали его флексбоксом*/
+    justify-content: space-between; /*равномерно распределило наши 4 элемента*/
+    
+    margin-top: 30px;
+}
+
+.slider_item{
+    width: 23%; /*ширина каждого айтема 23% от блока*/
+    font-size: 18px;
+    position: relative; /*это для того, чтобы мы могли позиционировать нашу красную полоску относительно  этого элемента*/
+    color: #fff;
+    text-transform: uppercase; /*верхний регистр*/
+    padding: 20px 0; /*отступ сверху и снизу по 20, слева и справа 0*/
+    border-top: 3px solid #fff;
+    opacity: 0.7; /*прозрачность*/
+    
+}
+
+.slider_num{
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.slider_item.active{
+    opacity: 1; /*убираем прозрачность с активного слайда*/
+}
+
+.slider_item.active:before{ /*пишем что у активного элемента слайдера, есть псевдоэлемент бивор*/
+    content: "";
+    display: block;
+    width: 70;
+    height: 3px;
+    background-color: #f38181;
+    
+    position: absolute; /*то есть относительно активного слайдер айтема*/
+    top: -3px;
+    left: 0;
+    z-index: 1;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
